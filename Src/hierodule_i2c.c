@@ -122,7 +122,7 @@ void DisableClockStretching(HIERODULE_I2C_Wrapper *Wrapper)
 static uint8_t ReceiveData(HIERODULE_I2C_Wrapper *Wrapper)
 {
     /** \cond */
-    #ifdef __STM32F030x6_H /** \endcond */
+    #if ( (defined __STM32F030x6_H) || defined(__STM32G473xx_H) ) /** \endcond */
     return (uint8_t)(READ_BIT(Wrapper->_I2C->RXDR, I2C_RXDR_RXDATA));
     /** \cond */
     #else /** \endcond */
@@ -140,7 +140,7 @@ static uint8_t ReceiveData(HIERODULE_I2C_Wrapper *Wrapper)
 void TransmitData(HIERODULE_I2C_Wrapper *Wrapper, uint8_t Byte)
 {
     /** \cond */
-    #ifdef __STM32F030x6_H /** \endcond */
+    #if ( (defined __STM32F030x6_H) || defined(__STM32G473xx_H) ) /** \endcond */
     WRITE_REG(Wrapper->_I2C->TXDR, Byte);
     /** \cond */
     #else /** \endcond */
@@ -157,11 +157,11 @@ void TransmitData(HIERODULE_I2C_Wrapper *Wrapper, uint8_t Byte)
 void ACK_Next(HIERODULE_I2C_Wrapper *Wrapper)
 {
     /** \cond */
-    #ifndef __STM32F030x6_H /** \endcond */
-    MODIFY_REG(Wrapper->_I2C->CR1, I2C_CR1_ACK, I2C_CR1_ACK);
+    #if ( (defined __STM32F030x6_H) || defined(__STM32G473xx_H) ) /** \endcond */
+    MODIFY_REG(Wrapper->_I2C->CR2, I2C_CR2_NACK, 0);
     /** \cond */
     #else /** \endcond */
-    MODIFY_REG(Wrapper->_I2C->CR2, I2C_CR2_NACK, 0);
+    MODIFY_REG(Wrapper->_I2C->CR1, I2C_CR1_ACK, I2C_CR1_ACK);
     /** \cond */
     #endif /** \endcond */
 }
@@ -174,11 +174,11 @@ void ACK_Next(HIERODULE_I2C_Wrapper *Wrapper)
 void NACK_Next(HIERODULE_I2C_Wrapper *Wrapper)
 {
     /** \cond */
-    #ifndef __STM32F030x6_H /** \endcond */
-    MODIFY_REG(Wrapper->_I2C->CR1, I2C_CR1_ACK, 0);
+    #if ( (defined __STM32F030x6_H) || defined(__STM32G473xx_H) ) /** \endcond */
+    MODIFY_REG(Wrapper->_I2C->CR2, I2C_CR2_NACK, I2C_CR2_NACK);
     /** \cond */
     #else /** \endcond */
-    MODIFY_REG(Wrapper->_I2C->CR2, I2C_CR2_NACK, I2C_CR2_NACK);
+    MODIFY_REG(Wrapper->_I2C->CR1, I2C_CR1_ACK, 0);
     /** \cond */
     #endif /** \endcond */
 }
@@ -191,11 +191,11 @@ void NACK_Next(HIERODULE_I2C_Wrapper *Wrapper)
 void Start(HIERODULE_I2C_Wrapper *Wrapper)
 {
     /** \cond */
-    #ifndef __STM32F030x6_H /** \endcond */
-    SET_BIT(Wrapper->_I2C->CR1, I2C_CR1_START);
+    #if ( (defined __STM32F030x6_H) || defined(__STM32G473xx_H) ) /** \endcond */
+    SET_BIT(Wrapper->_I2C->CR2, I2C_CR2_START);
     /** \cond */
     #else /** \endcond */
-    SET_BIT(Wrapper->_I2C->CR2, I2C_CR2_START);
+    SET_BIT(Wrapper->_I2C->CR1, I2C_CR1_START);
     /** \cond */
     #endif /** \endcond */
 }
@@ -208,11 +208,11 @@ void Start(HIERODULE_I2C_Wrapper *Wrapper)
 void Stop(HIERODULE_I2C_Wrapper *Wrapper)
 {
     /** \cond */
-    #ifndef __STM32F030x6_H /** \endcond */
-    SET_BIT(Wrapper->_I2C->CR1, I2C_CR1_STOP);
+    #if ( (defined __STM32F030x6_H) || defined(__STM32G473xx_H) ) /** \endcond */
+    SET_BIT(Wrapper->_I2C->CR2, I2C_CR2_STOP);
     /** \cond */
     #else /** \endcond */
-    SET_BIT(Wrapper->_I2C->CR2, I2C_CR2_STOP);
+    SET_BIT(Wrapper->_I2C->CR1, I2C_CR1_STOP);
     /** \cond */
     #endif /** \endcond */
 }
@@ -240,7 +240,7 @@ void ReceiveByteAsMaster(HIERODULE_I2C_Wrapper *Wrapper)
         Stop(Wrapper);
 
         /** \cond */
-        #ifndef __STM32F030x6_H /** \endcond */
+        #if !( (defined __STM32F030x6_H) || defined(__STM32G473xx_H) ) /** \endcond */
         EnableClockStretching(Wrapper);
         /** \cond */
         #endif /** \endcond */
@@ -288,18 +288,18 @@ void TransmitByteAsMaster(HIERODULE_I2C_Wrapper *Wrapper)
     if( Wrapper->MTX_Counter == Wrapper->MTX_BufferSize )
     {
         /** \cond */
-        #ifndef __STM32F030x6_H /** \endcond */
-        while(READ_BIT(Wrapper->_I2C->SR1, I2C_SR1_TXE) != (I2C_SR1_TXE))
+    #if ( (defined __STM32F030x6_H) || defined(__STM32G473xx_H) ) /** \endcond */
+        while(READ_BIT(Wrapper->_I2C->ISR, I2C_ISR_TC) != (I2C_ISR_TC));
         /** \cond */
         #else /** \endcond */
-        while(READ_BIT(Wrapper->_I2C->ISR, I2C_ISR_TC) != (I2C_ISR_TC));
+        while(READ_BIT(Wrapper->_I2C->SR1, I2C_SR1_TXE) != (I2C_SR1_TXE))
         /** \cond */
         #endif /** \endcond */
         Wrapper->Status = HIERODULE_I2C_Status_IDLE;
         Wrapper->SlaveAddress = 0;
         Stop(Wrapper);
         /** \cond */
-        #ifdef __STM32F030x6_H /** \endcond */
+        #if ( (defined __STM32F030x6_H) || defined(__STM32G473xx_H) ) /** \endcond */
         while( 0 == READ_BIT(Wrapper->_I2C->ISR, I2C_ISR_STOPF) );
         /** \cond */
         #endif /** \endcond */
@@ -334,7 +334,7 @@ void TransmitByteAsSlave(HIERODULE_I2C_Wrapper *Wrapper)
 void ReturnToIdleState(HIERODULE_I2C_Wrapper *Wrapper)
 {
     /** \cond */
-    #ifdef __STM32F030x6_H /** \endcond */
+    #if ( (defined __STM32F030x6_H) || defined(__STM32G473xx_H) ) /** \endcond */
     SET_BIT(Wrapper->_I2C->ICR, I2C_ICR_STOPCF);
     /** \cond */
     #else /** \endcond */
@@ -357,7 +357,7 @@ void Receive_NACK(HIERODULE_I2C_Wrapper *Wrapper)
     if(Wrapper->Status == HIERODULE_I2C_Status_STX )
     {
         /** \cond */
-        #ifdef __STM32F030x6_H /** \endcond */
+        #if ( (defined __STM32F030x6_H) || defined(__STM32G473xx_H) ) /** \endcond */
         SET_BIT(Wrapper->_I2C->ICR, I2C_ICR_NACKCF);
         while( 1 == READ_BIT(Wrapper->_I2C->ISR, I2C_ISR_NACKF) );
         /** \cond */
@@ -367,7 +367,7 @@ void Receive_NACK(HIERODULE_I2C_Wrapper *Wrapper)
         #endif /** \endcond */
 
         /** \cond */
-        #ifdef __STM32F030x6_H /** \endcond */
+        #if ( (defined __STM32F030x6_H) || defined(__STM32G473xx_H) ) /** \endcond */
         TransmitByteAsSlave(Wrapper);
         while( 0 == READ_BIT(Wrapper->_I2C->ISR, I2C_ISR_STOPF) );
         SET_BIT(Wrapper->_I2C->ICR, I2C_ICR_STOPCF);
@@ -479,7 +479,7 @@ HIERODULE_I2C_Wrapper **HIERODULE_I2C_InitWrapper(I2C_TypeDef *_I2C, uint16_t SR
 
     
     /** \cond */
-    #ifdef __STM32F030x6_H /** \endcond */
+    #if ( (defined __STM32F030x6_H) || defined(__STM32G473xx_H) ) /** \endcond */
     SET_BIT((*Wrapper)->_I2C->CR1, I2C_CR1_ADDRIE);
     SET_BIT((*Wrapper)->_I2C->CR1, I2C_CR1_NACKIE);
     SET_BIT((*Wrapper)->_I2C->CR1, I2C_CR1_STOPIE);
@@ -497,13 +497,48 @@ HIERODULE_I2C_Wrapper **HIERODULE_I2C_InitWrapper(I2C_TypeDef *_I2C, uint16_t SR
     ACK_Next(*Wrapper);
 
     /** \cond */
-    #ifdef __STM32F030x6_H /** \endcond */
+    #if ( (defined __STM31F030x6_H) || defined(__STM32G473xx_H) ) /** \endcond */
 
     uint32_t bus_clock;
+
+    #ifdef __STM32G473xx_H
+    /* On STM32G4, I2C kernel clock is selected per instance via RCC->CCIPR */
+    uint32_t sel = 0U;
+    if ((*Wrapper)->_I2C == I2C1)
+    {
+        sel = (uint32_t)((RCC->CCIPR & RCC_CCIPR_I2C1SEL) >> RCC_CCIPR_I2C1SEL_Pos);
+    }
+    else if ((*Wrapper)->_I2C == I2C2)
+    {
+        sel = (uint32_t)((RCC->CCIPR & RCC_CCIPR_I2C2SEL) >> RCC_CCIPR_I2C2SEL_Pos);
+    }
+    else if ((*Wrapper)->_I2C == I2C3)
+    {
+        sel = (uint32_t)((RCC->CCIPR & RCC_CCIPR_I2C3SEL) >> RCC_CCIPR_I2C3SEL_Pos);
+    }
+    /* Map selection to actual frequency: 00=PCLK1, 01=SYSCLK, 10=HSI16, 11=reserved */
+    switch (sel)
+    {
+        case 0x0U: /* PCLK1 */
+            bus_clock = HAL_RCC_GetPCLK1Freq();
+            break;
+        case 0x1U: /* SYSCLK */
+            bus_clock = SystemCoreClock;
+            break;
+        case 0x2U: /* HSI16 */
+            bus_clock = HSI_VALUE;
+            break;
+        default:   /* Fallback to APB1 clock */
+            bus_clock = HAL_RCC_GetPCLK1Freq();
+            break;
+    }
+    #else
+    /* Legacy families (e.g. F0) use RCC->CFGR3.I2C1SW: 0=HSI, 1=SYSCLK */
     if( ((uint32_t)READ_BIT(RCC->CFGR3, RCC_CFGR3_I2C1SW) ) == RCC_CFGR3_I2C1SW_SYSCLK)
         bus_clock = SystemCoreClock;
     else
         bus_clock = HSI_VALUE;
+    #endif
 
     double core_clock_rate = ((double)SystemCoreClock)/(bus_clock);
 
@@ -559,7 +594,7 @@ void HIERODULE_I2C_MasterTransmit(HIERODULE_I2C_Wrapper *Wrapper, uint8_t SlaveA
     DisableClockStretching(Wrapper);
 
     /** \cond */
-    #ifdef __STM32F030x6_H /** \endcond */
+    #if ( (defined __STM32F030x6_H) || defined(__STM32G473xx_H) ) /** \endcond */
     MODIFY_REG(Wrapper->_I2C->CR2, I2C_CR2_SADD, SlaveAddress<<1);
     MODIFY_REG(Wrapper->_I2C->CR2, I2C_CR2_NBYTES, Size << I2C_CR2_NBYTES_Pos);
     MODIFY_REG(Wrapper->_I2C->CR2, I2C_CR2_RD_WRN, 0);
@@ -588,7 +623,7 @@ void HIERODULE_I2C_MasterReceive(HIERODULE_I2C_Wrapper *Wrapper, uint8_t SlaveAd
     DisableClockStretching(Wrapper);
 
     /** \cond */
-    #ifdef __STM32F030x6_H /** \endcond */
+    #if ( (defined __STM32F030x6_H) || defined(__STM32G473xx_H) ) /** \endcond */
     MODIFY_REG(Wrapper->_I2C->CR2, I2C_CR2_SADD, (SlaveAddress<<1)+1);
     MODIFY_REG(Wrapper->_I2C->CR2, I2C_CR2_NBYTES, Size << I2C_CR2_NBYTES_Pos);
     MODIFY_REG(Wrapper->_I2C->CR2, I2C_CR2_RD_WRN, I2C_CR2_RD_WRN);
@@ -630,7 +665,7 @@ void I2C_IRQ_Handler(HIERODULE_I2C_Wrapper *Wrapper)
 {
 
     /** \cond */
-    #ifndef __STM32F030x6_H /** \endcond */
+    #if !( (defined __STM32F030x6_H) || defined(__STM32G473xx_H) ) /** \endcond */
     uint8_t _ADDR_Active = (READ_BIT(Wrapper->_I2C->SR1, I2C_SR1_ADDR) == (I2C_SR1_ADDR));
     /** \cond */
     #else /** \endcond */
@@ -638,7 +673,7 @@ void I2C_IRQ_Handler(HIERODULE_I2C_Wrapper *Wrapper)
     /** \cond */
     #endif
 
-    #ifdef __STM32F030x6_H /** \endcond */
+    #if ( (defined __STM32F030x6_H) || defined(__STM32G473xx_H) ) /** \endcond */
     if ( READ_BIT(Wrapper->_I2C->ISR, I2C_ISR_NACKF) == (I2C_ISR_NACKF) )
     {
         Receive_NACK(Wrapper);
@@ -652,7 +687,7 @@ void I2C_IRQ_Handler(HIERODULE_I2C_Wrapper *Wrapper)
     /** \cond */
     #endif
 
-    #ifdef __STM32F030x6_H /** \endcond */
+    #if ( (defined __STM32F030x6_H) || defined(__STM32G473xx_H) ) /** \endcond */
     else if( READ_BIT(Wrapper->_I2C->ISR, I2C_ISR_RXNE) == (I2C_ISR_RXNE) )
     {
         if( Wrapper->Status == HIERODULE_I2C_Status_MRX )
@@ -682,7 +717,7 @@ void I2C_IRQ_Handler(HIERODULE_I2C_Wrapper *Wrapper)
     /** \cond */
     #endif
 
-    #ifndef __STM32F030x6_H /** \endcond */
+    #if !( (defined __STM32F030x6_H) || defined(__STM32G473xx_H) ) /** \endcond */
     else if ( READ_BIT(Wrapper->_I2C->SR1, I2C_SR1_SB) == (I2C_SR1_SB) )
     {
         if( Wrapper->Status == HIERODULE_I2C_Status_MTX_SB )
@@ -698,7 +733,7 @@ void I2C_IRQ_Handler(HIERODULE_I2C_Wrapper *Wrapper)
         if(Wrapper->Status == HIERODULE_I2C_Status_IDLE)
         {
             /** \cond */
-            #ifndef __STM32F030x6_H /** \endcond */
+            #if !( (defined __STM32F030x6_H) || defined(__STM32G473xx_H) ) /** \endcond */
             uint32_t _t_dir = (uint32_t)(READ_BIT(Wrapper->_I2C->SR2, I2C_SR2_TRA));
             /** \cond */
             #else /** \endcond */
@@ -711,7 +746,7 @@ void I2C_IRQ_Handler(HIERODULE_I2C_Wrapper *Wrapper)
                 Wrapper->Status = HIERODULE_I2C_Status_STX;
         }
         /** \cond */
-        #ifndef __STM32F030x6_H /** \endcond */
+        #if !( (defined __STM32F030x6_H) || defined(__STM32G473xx_H) ) /** \endcond */
         else if(Wrapper->Status == HIERODULE_I2C_Status_MTX_ADR)
         {
             Wrapper->Status = HIERODULE_I2C_Status_MTX;
@@ -729,7 +764,7 @@ void I2C_IRQ_Handler(HIERODULE_I2C_Wrapper *Wrapper)
         #endif /** \endcond */
     }
     /** \cond */
-    #ifndef __STM32F030x6_H /** \endcond */
+    #if !( (defined __STM32F030x6_H) || defined(__STM32G473xx_H) ) /** \endcond */
     else if ( (READ_BIT(Wrapper->_I2C->SR1, I2C_SR1_TXE) == (I2C_SR1_TXE)) )
     {
         if(Wrapper->Status == HIERODULE_I2C_Status_MTX )
@@ -773,7 +808,7 @@ void I2C_IRQ_Handler(HIERODULE_I2C_Wrapper *Wrapper)
     /** \cond */
     #endif
 
-    #ifdef __STM32F030x6_H /** \endcond */
+    #if ( (defined __STM32F030x6_H) || defined(__STM32G473xx_H) ) /** \endcond */
     else if ( READ_BIT(Wrapper->_I2C->ISR, I2C_ISR_STOPF) == (I2C_ISR_STOPF) )
     {
         ReturnToIdleState(Wrapper);
@@ -826,7 +861,7 @@ extern void I2C2_EV_IRQHandler(void)
   * @details @rv_obvious
   */
 /** \cond */
-#elif defined __STM32F030x6_H /** \endcond */
+#elif ( (defined __STM32F030x6_H) || defined(__STM32G473xx_H) ) /** \endcond */
 extern void I2C1_IRQHandler(void)
 {
     if( I2C1_Wrapper != NULL )
