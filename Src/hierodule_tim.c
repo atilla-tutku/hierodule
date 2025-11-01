@@ -41,7 +41,7 @@
 #ifdef __STM32F030x6_H /** \endcond */
 static const uint32_t APB1_DIV1_SINGLE = (RCC_CFGR_PPRE_DIV1>>RCC_CFGR_PPRE_Pos);
 /** \cond */
-#elif ( (defined __STM32F103xB_H) || (defined __STM32F401xC_H) ) /** \endcond */
+#elif ( (defined __STM32F103xB_H) || (defined __STM32F401xC_H) || (defined __STM32G473xx_H) ) /** \endcond */
 /** @brief @rv_apb_check 1.\n
   * @rv_def_req_device{__STM32F103xB_H or __STM32F401xC_H}
   */
@@ -99,7 +99,7 @@ static const uint32_t APB2_DIV1 = (RCC_CFGR_PPRE2_DIV1>>RCC_CFGR_PPRE2_Pos);
   * @rv_def_req{HIERODULE_TIM_CONVENIENT_IRQ}
   */
     /** \cond */
-    #if ( (defined __STM32F103xB_H) || (defined __STM32F401xC_H) ) /** \endcond */
+    #if ( (defined __STM32F103xB_H) || (defined __STM32F401xC_H) || (defined __STM32G473xx_H) ) /** \endcond */
         static FUNC_POINTER UPD_Handler_TIM2 = NULL;
     /** \cond */
     #endif /** \endcond */
@@ -110,7 +110,7 @@ static const uint32_t APB2_DIV1 = (RCC_CFGR_PPRE2_DIV1>>RCC_CFGR_PPRE2_Pos);
   * @rv_def_req{HIERODULE_TIM_CONVENIENT_IRQ}
   */
     /** \cond */
-    #if ( (defined __STM32F103xB_H) || (defined __STM32F401xC_H) ) /** \endcond */
+    #if ( (defined __STM32F103xB_H) || (defined __STM32F401xC_H) || (defined __STM32G473xx_H) ) /** \endcond */
         static FUNC_POINTER CC1_Handler_TIM2 = NULL;
     /** \cond */
     #endif /** \endcond */
@@ -121,7 +121,7 @@ static const uint32_t APB2_DIV1 = (RCC_CFGR_PPRE2_DIV1>>RCC_CFGR_PPRE2_Pos);
   * @rv_def_req{HIERODULE_TIM_CONVENIENT_IRQ}
   */
     /** \cond */
-    #if ( (defined __STM32F103xB_H) || (defined __STM32F401xC_H) ) /** \endcond */
+    #if ( (defined __STM32F103xB_H) || (defined __STM32F401xC_H) || (defined __STM32G473xx_H) ) /** \endcond */
         static FUNC_POINTER CC2_Handler_TIM2 = NULL;
     /** \cond */
     #endif /** \endcond */
@@ -132,7 +132,7 @@ static const uint32_t APB2_DIV1 = (RCC_CFGR_PPRE2_DIV1>>RCC_CFGR_PPRE2_Pos);
   * @rv_def_req{HIERODULE_TIM_CONVENIENT_IRQ}
   */
     /** \cond */
-    #if ( (defined __STM32F103xB_H) || (defined __STM32F401xC_H) ) /** \endcond */
+    #if ( (defined __STM32F103xB_H) || (defined __STM32F401xC_H) || (defined __STM32G473xx_H) ) /** \endcond */
         static FUNC_POINTER CC3_Handler_TIM2 = NULL;
     /** \cond */
     #endif /** \endcond */
@@ -143,7 +143,7 @@ static const uint32_t APB2_DIV1 = (RCC_CFGR_PPRE2_DIV1>>RCC_CFGR_PPRE2_Pos);
   * @rv_def_req{HIERODULE_TIM_CONVENIENT_IRQ}
   */
     /** \cond */
-    #if ( (defined __STM32F103xB_H) || (defined __STM32F401xC_H) ) /** \endcond */
+    #if ( (defined __STM32F103xB_H) || (defined __STM32F401xC_H) || (defined __STM32G473xx_H) ) /** \endcond */
         static FUNC_POINTER CC4_Handler_TIM2 = NULL;
     /** \cond */
     #endif /** \endcond */
@@ -184,7 +184,7 @@ static const uint32_t APB2_DIV1 = (RCC_CFGR_PPRE2_DIV1>>RCC_CFGR_PPRE2_Pos);
   * @rv_def_req{HIERODULE_TIM_CONVENIENT_IRQ}
   */
     /** \cond */
-    #if ( (defined __STM32F103xB_H) || (defined __STM32F401xC_H) ) /** \endcond */
+    #if ( (defined __STM32F103xB_H) || (defined __STM32F401xC_H) || (defined __STM32G473xx_H) ) /** \endcond */
         static FUNC_POINTER UPD_Handler_TIM4 = NULL;
     /** \cond */
     #endif /** \endcond */
@@ -195,7 +195,7 @@ static const uint32_t APB2_DIV1 = (RCC_CFGR_PPRE2_DIV1>>RCC_CFGR_PPRE2_Pos);
   * @rv_def_req{HIERODULE_TIM_CONVENIENT_IRQ}
   */
     /** \cond */
-    #if ( (defined __STM32F103xB_H) || (defined __STM32F401xC_H) ) /** \endcond */
+    #if ( (defined __STM32F103xB_H) || (defined __STM32F401xC_H) || (defined __STM32G473xx_H) ) /** \endcond */
         static FUNC_POINTER CC1_Handler_TIM4 = NULL;
     /** \cond */
     #endif /** \endcond */
@@ -206,7 +206,7 @@ static const uint32_t APB2_DIV1 = (RCC_CFGR_PPRE2_DIV1>>RCC_CFGR_PPRE2_Pos);
   * @rv_def_req{HIERODULE_TIM_CONVENIENT_IRQ}
   */
     /** \cond */
-    #if ( (defined __STM32F103xB_H) || (defined __STM32F401xC_H) ) /** \endcond */
+    #if ( (defined __STM32F103xB_H) || (defined __STM32F401xC_H) || (defined __STM32G473xx_H) ) /** \endcond */
         static FUNC_POINTER CC2_Handler_TIM4 = NULL;
     /** \cond */
     #endif /** \endcond */
@@ -217,7 +217,7 @@ static const uint32_t APB2_DIV1 = (RCC_CFGR_PPRE2_DIV1>>RCC_CFGR_PPRE2_Pos);
   * @rv_def_req{HIERODULE_TIM_CONVENIENT_IRQ}
   */
     /** \cond */
-    #if ( (defined __STM32F103xB_H) || (defined __STM32F401xC_H) ) /** \endcond */
+    #if ( (defined __STM32F103xB_H) || (defined __STM32F401xC_H) || (defined __STM32G473xx_H) ) /** \endcond */
         static FUNC_POINTER CC3_Handler_TIM4 = NULL;
     /** \cond */
     #endif /** \endcond */
@@ -228,7 +228,7 @@ static const uint32_t APB2_DIV1 = (RCC_CFGR_PPRE2_DIV1>>RCC_CFGR_PPRE2_Pos);
   * @rv_def_req{HIERODULE_TIM_CONVENIENT_IRQ}
   */
     /** \cond */
-    #if ( (defined __STM32F103xB_H) || (defined __STM32F401xC_H) ) /** \endcond */
+    #if ( (defined __STM32F103xB_H) || (defined __STM32F401xC_H) || (defined __STM32G473xx_H) ) /** \endcond */
         static FUNC_POINTER CC4_Handler_TIM4 = NULL;
     /** \cond */
     #endif /** \endcond */
@@ -370,6 +370,176 @@ static const uint32_t APB2_DIV1 = (RCC_CFGR_PPRE2_DIV1>>RCC_CFGR_PPRE2_Pos);
   * @rv_def_req{HIERODULE_TIM_CONVENIENT_IRQ}
   */
         static FUNC_POINTER CC1_Handler_TIM17 = NULL;
+
+        /** \cond */
+        #elif defined __STM32G473xx_H /** \endcond */
+/** @brief @rv_fp_conv_isr{update,5}\n
+  * @rv_def_req_device{__STM32G473xx_H}\n
+  * @rv_def_req{HIERODULE_TIM_HANDLE_IRQ}\n
+  * @rv_def_req{HIERODULE_TIM_CONVENIENT_IRQ}
+  */
+        static FUNC_POINTER UPD_Handler_TIM5 = NULL;
+
+/** @brief @rv_fp_conv_isr{capture compare channel 1,5}\n
+  * @rv_def_req_device{__STM32G473xx_H}\n
+  * @rv_def_req{HIERODULE_TIM_HANDLE_IRQ}\n
+  * @rv_def_req{HIERODULE_TIM_CONVENIENT_IRQ}
+  */
+        static FUNC_POINTER CC1_Handler_TIM5 = NULL;
+
+/** @brief @rv_fp_conv_isr{capture compare channel 2,5}\n
+  * @rv_def_req_device{__STM32G473xx_H}\n
+  * @rv_def_req{HIERODULE_TIM_HANDLE_IRQ}\n
+  * @rv_def_req{HIERODULE_TIM_CONVENIENT_IRQ}
+  */
+        static FUNC_POINTER CC2_Handler_TIM5 = NULL;
+
+/** @brief @rv_fp_conv_isr{capture compare channel 3,5}\n
+  * @rv_def_req_device{__STM32G473xx_H}\n
+  * @rv_def_req{HIERODULE_TIM_HANDLE_IRQ}\n
+  * @rv_def_req{HIERODULE_TIM_CONVENIENT_IRQ}
+  */
+        static FUNC_POINTER CC3_Handler_TIM5 = NULL;
+
+/** @brief @rv_fp_conv_isr{capture compare channel 4,5}\n
+  * @rv_def_req_device{__STM32G473xx_H}\n
+  * @rv_def_req{HIERODULE_TIM_HANDLE_IRQ}\n
+  * @rv_def_req{HIERODULE_TIM_CONVENIENT_IRQ}
+  */
+        static FUNC_POINTER CC4_Handler_TIM5 = NULL;
+
+/** @brief @rv_fp_conv_isr{update,6}\n
+  * @rv_def_req_device{__STM32G473xx_H}\n
+  * @rv_def_req{HIERODULE_TIM_HANDLE_IRQ}\n
+  * @rv_def_req{HIERODULE_TIM_CONVENIENT_IRQ}
+  */
+        static FUNC_POINTER UPD_Handler_TIM6 = NULL;
+
+/** @brief @rv_fp_conv_isr{update,7}\n
+  * @rv_def_req_device{__STM32G473xx_H}\n
+  * @rv_def_req{HIERODULE_TIM_HANDLE_IRQ}\n
+  * @rv_def_req{HIERODULE_TIM_CONVENIENT_IRQ}
+  */
+        static FUNC_POINTER UPD_Handler_TIM7 = NULL;
+
+/** @brief @rv_fp_conv_isr{break,8}\n
+  * @rv_def_req_device{__STM32G473xx_H}\n
+  * @rv_def_req{HIERODULE_TIM_HANDLE_IRQ}\n
+  * @rv_def_req{HIERODULE_TIM_CONVENIENT_IRQ}
+  */
+        static FUNC_POINTER BRK_Handler_TIM8 = NULL;
+
+/** @brief @rv_fp_conv_isr{update,8}\n
+  * @rv_def_req_device{__STM32G473xx_H}\n
+  * @rv_def_req{HIERODULE_TIM_HANDLE_IRQ}\n
+  * @rv_def_req{HIERODULE_TIM_CONVENIENT_IRQ}
+  */
+        static FUNC_POINTER UPD_Handler_TIM8 = NULL;
+
+/** @brief @rv_fp_conv_isr{capture compare channel 1,8}\n
+  * @rv_def_req_device{__STM32G473xx_H}\n
+  * @rv_def_req{HIERODULE_TIM_HANDLE_IRQ}\n
+  * @rv_def_req{HIERODULE_TIM_CONVENIENT_IRQ}
+  */
+        static FUNC_POINTER CC1_Handler_TIM8 = NULL;
+
+/** @brief @rv_fp_conv_isr{capture compare channel 2,8}\n
+  * @rv_def_req_device{__STM32G473xx_H}\n
+  * @rv_def_req{HIERODULE_TIM_HANDLE_IRQ}\n
+  * @rv_def_req{HIERODULE_TIM_CONVENIENT_IRQ}
+  */
+        static FUNC_POINTER CC2_Handler_TIM8 = NULL;
+
+/** @brief @rv_fp_conv_isr{capture compare channel 3,8}\n
+  * @rv_def_req_device{__STM32G473xx_H}\n
+  * @rv_def_req{HIERODULE_TIM_HANDLE_IRQ}\n
+  * @rv_def_req{HIERODULE_TIM_CONVENIENT_IRQ}
+  */
+        static FUNC_POINTER CC3_Handler_TIM8 = NULL;
+
+/** @brief @rv_fp_conv_isr{capture compare channel 4,8}\n
+  * @rv_def_req_device{__STM32G473xx_H}\n
+  * @rv_def_req{HIERODULE_TIM_HANDLE_IRQ}\n
+  * @rv_def_req{HIERODULE_TIM_CONVENIENT_IRQ}
+  */
+        static FUNC_POINTER CC4_Handler_TIM8 = NULL;
+
+/** @brief @rv_fp_conv_isr{update,15}\n
+  * @rv_def_req_device{__STM32G473xx_H}\n
+  * @rv_def_req{HIERODULE_TIM_HANDLE_IRQ}\n
+  * @rv_def_req{HIERODULE_TIM_CONVENIENT_IRQ}
+  */
+        static FUNC_POINTER UPD_Handler_TIM15 = NULL;
+
+/** @brief @rv_fp_conv_isr{capture compare channel 1,15}\n
+  * @rv_def_req_device{__STM32G473xx_H}\n
+  * @rv_def_req{HIERODULE_TIM_HANDLE_IRQ}\n
+  * @rv_def_req{HIERODULE_TIM_CONVENIENT_IRQ}
+  */
+        static FUNC_POINTER CC1_Handler_TIM15 = NULL;
+
+/** @brief @rv_fp_conv_isr{capture compare channel 2,15}\n
+  * @rv_def_req_device{__STM32G473xx_H}\n
+  * @rv_def_req{HIERODULE_TIM_HANDLE_IRQ}\n
+  * @rv_def_req{HIERODULE_TIM_CONVENIENT_IRQ}
+  */
+        static FUNC_POINTER CC2_Handler_TIM15 = NULL;
+
+/** @brief @rv_fp_conv_isr{update,16}\n
+  * @rv_def_req_device{__STM32G473xx_H}\n
+  * @rv_def_req{HIERODULE_TIM_HANDLE_IRQ}\n
+  * @rv_def_req{HIERODULE_TIM_CONVENIENT_IRQ}
+  */
+        static FUNC_POINTER UPD_Handler_TIM16 = NULL;
+
+/** @brief @rv_fp_conv_isr{update,17}\n
+  * @rv_def_req_device{__STM32G473xx_H}\n
+  * @rv_def_req{HIERODULE_TIM_HANDLE_IRQ}\n
+  * @rv_def_req{HIERODULE_TIM_CONVENIENT_IRQ}
+  */
+        static FUNC_POINTER UPD_Handler_TIM17 = NULL;
+
+/** @brief @rv_fp_conv_isr{break,20}\n
+  * @rv_def_req_device{__STM32G473xx_H}\n
+  * @rv_def_req{HIERODULE_TIM_HANDLE_IRQ}\n
+  * @rv_def_req{HIERODULE_TIM_CONVENIENT_IRQ}
+  */
+        static FUNC_POINTER BRK_Handler_TIM20 = NULL;
+
+/** @brief @rv_fp_conv_isr{update,20}\n
+  * @rv_def_req_device{__STM32G473xx_H}\n
+  * @rv_def_req{HIERODULE_TIM_HANDLE_IRQ}\n
+  * @rv_def_req{HIERODULE_TIM_CONVENIENT_IRQ}
+  */
+        static FUNC_POINTER UPD_Handler_TIM20 = NULL;
+
+/** @brief @rv_fp_conv_isr{capture compare channel 1,20}\n
+  * @rv_def_req_device{__STM32G473xx_H}\n
+  * @rv_def_req{HIERODULE_TIM_HANDLE_IRQ}\n
+  * @rv_def_req{HIERODULE_TIM_CONVENIENT_IRQ}
+  */
+        static FUNC_POINTER CC1_Handler_TIM20 = NULL;
+
+/** @brief @rv_fp_conv_isr{capture compare channel 2,20}\n
+  * @rv_def_req_device{__STM32G473xx_H}\n
+  * @rv_def_req{HIERODULE_TIM_HANDLE_IRQ}\n
+  * @rv_def_req{HIERODULE_TIM_CONVENIENT_IRQ}
+  */
+        static FUNC_POINTER CC2_Handler_TIM20 = NULL;
+
+/** @brief @rv_fp_conv_isr{capture compare channel 3,20}\n
+  * @rv_def_req_device{__STM32G473xx_H}\n
+  * @rv_def_req{HIERODULE_TIM_HANDLE_IRQ}\n
+  * @rv_def_req{HIERODULE_TIM_CONVENIENT_IRQ}
+  */
+        static FUNC_POINTER CC3_Handler_TIM20 = NULL;
+
+/** @brief @rv_fp_conv_isr{capture compare channel 4,20}\n
+  * @rv_def_req_device{__STM32G473xx_H}\n
+  * @rv_def_req{HIERODULE_TIM_HANDLE_IRQ}\n
+  * @rv_def_req{HIERODULE_TIM_CONVENIENT_IRQ}
+  */
+        static FUNC_POINTER CC4_Handler_TIM20 = NULL;
 
         /** \cond */
         #endif
@@ -587,6 +757,28 @@ static uint32_t GetBaseFreq(TIM_TypeDef *Timer)
     if( (READ_REG(RCC->CFGR) & RCC_CFGR_PPRE) != APB1_DIV1_SINGLE )
     {
         BaseFreq *= 2;
+    }
+    /** \cond */
+    #elif defined __STM32G473xx_H /** \endcond */
+    if(Timer != TIM1 && Timer != TIM8 && Timer != TIM20)
+    {
+        BaseFreq = (SystemCoreClock >>
+            APBPrescTable[(RCC->CFGR & RCC_CFGR_PPRE1) >> RCC_CFGR_PPRE1_Pos]);
+
+        if( (READ_REG(RCC->CFGR) & RCC_CFGR_PPRE1) != APB1_DIV1 )
+        {
+            BaseFreq *= 2;
+        }
+    }
+    else
+    {
+        BaseFreq = (SystemCoreClock >> 
+            APBPrescTable[(RCC->CFGR & RCC_CFGR_PPRE2) >> RCC_CFGR_PPRE2_Pos]);
+
+        if( (READ_REG(RCC->CFGR) & RCC_CFGR_PPRE2) != APB2_DIV1 )
+        {
+            BaseFreq *= 2;
+        }
     }
     /** \cond */
     #endif /** \endcond */
@@ -1106,7 +1298,7 @@ void HIERODULE_TIM_Assign_ISR_UPD(TIM_TypeDef *Timer, FUNC_POINTER ISR)
             UPD_Handler_TIM1 = ISR;
             break;
         /** \cond */
-        #if ( (defined __STM32F103xB_H) || (defined __STM32F401xC_H) ) /** \endcond */
+        #if ( (defined __STM32F103xB_H) || (defined __STM32F401xC_H) || (defined __STM32G473xx_H) ) /** \endcond */
         case ( (uint32_t)TIM2 ):
             UPD_Handler_TIM2 = ISR;
             break;
@@ -1116,7 +1308,7 @@ void HIERODULE_TIM_Assign_ISR_UPD(TIM_TypeDef *Timer, FUNC_POINTER ISR)
             UPD_Handler_TIM3 = ISR;
             break;
         /** \cond */
-        #if ( (defined __STM32F103xB_H) || (defined __STM32F401xC_H) ) /** \endcond */
+        #if ( (defined __STM32F103xB_H) || (defined __STM32F401xC_H) || (defined __STM32G473xx_H) ) /** \endcond */
         case ( (uint32_t)TIM4 ):
             UPD_Handler_TIM4 = ISR;
             break;
@@ -1134,6 +1326,32 @@ void HIERODULE_TIM_Assign_ISR_UPD(TIM_TypeDef *Timer, FUNC_POINTER ISR)
             break;
         case ( (uint32_t)TIM11 ):
             UPD_Handler_TIM11 = ISR;
+            break;
+        /** \cond */
+        #elif defined __STM32G473xx_H /** \endcond */
+        case ( (uint32_t)TIM5 ):
+            UPD_Handler_TIM5 = ISR;
+            break;
+        case ( (uint32_t)TIM6 ):
+            UPD_Handler_TIM6 = ISR;
+            break;
+        case ( (uint32_t)TIM7 ):
+            UPD_Handler_TIM7 = ISR;
+            break;
+        case ( (uint32_t)TIM8 ):
+            UPD_Handler_TIM8 = ISR;
+            break;
+        case ( (uint32_t)TIM15 ):
+            UPD_Handler_TIM15 = ISR;
+            break;
+        case ( (uint32_t)TIM16 ):
+            UPD_Handler_TIM16 = ISR;
+            break;
+        case ( (uint32_t)TIM17 ):
+            UPD_Handler_TIM17 = ISR;
+            break;
+        case ( (uint32_t)TIM20 ):
+            UPD_Handler_TIM20 = ISR;
             break;
         /** \cond */
         #elif defined __STM32F030x6_H /** \endcond */
@@ -1195,6 +1413,20 @@ void HIERODULE_TIM_Assign_ISR_CC1(TIM_TypeDef *Timer, FUNC_POINTER ISR)
             CC1_Handler_TIM11 = ISR;
             break;
         /** \cond */
+        #elif defined __STM32G473xx_H /** \endcond */
+        case ( (uint32_t)TIM5 ):
+            CC1_Handler_TIM5 = ISR;
+            break;
+        case ( (uint32_t)TIM8 ):
+            CC1_Handler_TIM8 = ISR;
+            break;
+        case ( (uint32_t)TIM15 ):
+            CC1_Handler_TIM15 = ISR;
+            break;
+        case ( (uint32_t)TIM20 ):
+            CC1_Handler_TIM20 = ISR;
+            break;
+        /** \cond */
         #elif defined __STM32F030x6_H /** \endcond */
         case ( (uint32_t)TIM14 ):
             CC1_Handler_TIM14 = ISR;
@@ -1224,7 +1456,7 @@ void HIERODULE_TIM_Assign_ISR_CC2(TIM_TypeDef *Timer, FUNC_POINTER ISR)
             CC2_Handler_TIM1 = ISR;
             break;
         /** \cond */
-        #if ( (defined __STM32F103xB_H) || (defined __STM32F401xC_H) ) /** \endcond */
+        #if ( (defined __STM32F103xB_H) || (defined __STM32F401xC_H) || (defined __STM32G473xx_H)) /** \endcond */
         case ( (uint32_t)TIM2 ):
             CC2_Handler_TIM2 = ISR;
             break;
@@ -1234,7 +1466,7 @@ void HIERODULE_TIM_Assign_ISR_CC2(TIM_TypeDef *Timer, FUNC_POINTER ISR)
             CC2_Handler_TIM3 = ISR;
             break;
         /** \cond */
-        #if ( (defined __STM32F103xB_H) || (defined __STM32F401xC_H) ) /** \endcond */
+        #if ( (defined __STM32F103xB_H) || (defined __STM32F401xC_H) || (defined __STM32G473xx_H)) /** \endcond */
         case ( (uint32_t)TIM4 ):
             CC2_Handler_TIM4 = ISR;
             break;
@@ -1246,6 +1478,20 @@ void HIERODULE_TIM_Assign_ISR_CC2(TIM_TypeDef *Timer, FUNC_POINTER ISR)
             break;
         case ( (uint32_t)TIM9 ):
             CC2_Handler_TIM9 = ISR;
+            break;
+        /** \cond */
+        #elif defined __STM32G473xx_H /** \endcond */
+        case ( (uint32_t)TIM5 ):
+            CC2_Handler_TIM5 = ISR;
+            break;
+        case ( (uint32_t)TIM8 ):
+            CC2_Handler_TIM8 = ISR;
+            break;
+        case ( (uint32_t)TIM15 ):
+            CC2_Handler_TIM15 = ISR;
+            break;
+        case ( (uint32_t)TIM20 ):
+            CC2_Handler_TIM20 = ISR;
             break;
         /** \cond */
         #endif /** \endcond */
@@ -1266,7 +1512,7 @@ void HIERODULE_TIM_Assign_ISR_CC3(TIM_TypeDef *Timer, FUNC_POINTER ISR)
             CC3_Handler_TIM1 = ISR;
             break;
         /** \cond */
-        #if ( (defined __STM32F103xB_H) || (defined __STM32F401xC_H) ) /** \endcond */
+        #if ( (defined __STM32F103xB_H) || (defined __STM32F401xC_H) || (defined __STM32G473xx_H)) /** \endcond */
         case ( (uint32_t)TIM2 ):
             CC3_Handler_TIM2 = ISR;
             break;
@@ -1276,7 +1522,7 @@ void HIERODULE_TIM_Assign_ISR_CC3(TIM_TypeDef *Timer, FUNC_POINTER ISR)
             CC3_Handler_TIM3 = ISR;
             break;
         /** \cond */
-        #if ( (defined __STM32F103xB_H) || (defined __STM32F401xC_H) ) /** \endcond */
+        #if ( (defined __STM32F103xB_H) || (defined __STM32F401xC_H) || (defined __STM32G473xx_H)) /** \endcond */
         case ( (uint32_t)TIM4 ):
             CC3_Handler_TIM4 = ISR;
             break;
@@ -1285,6 +1531,17 @@ void HIERODULE_TIM_Assign_ISR_CC3(TIM_TypeDef *Timer, FUNC_POINTER ISR)
         #ifdef __STM32F401xC_H /** \endcond */
         case ( (uint32_t)TIM5 ):
             CC3_Handler_TIM5 = ISR;
+            break;
+        /** \cond */
+        #elif defined __STM32G473xx_H /** \endcond */
+        case ( (uint32_t)TIM5 ):
+            CC3_Handler_TIM5 = ISR;
+            break;
+        case ( (uint32_t)TIM8 ):
+            CC3_Handler_TIM8 = ISR;
+            break;
+        case ( (uint32_t)TIM20 ):
+            CC3_Handler_TIM20 = ISR;
             break;
         /** \cond */
         #endif /** \endcond */
@@ -1305,7 +1562,7 @@ void HIERODULE_TIM_Assign_ISR_CC4(TIM_TypeDef *Timer, FUNC_POINTER ISR)
             CC4_Handler_TIM1 = ISR;
             break;
         /** \cond */
-        #if ( (defined __STM32F103xB_H) || (defined __STM32F401xC_H) ) /** \endcond */
+        #if ( (defined __STM32F103xB_H) || (defined __STM32F401xC_H) || (defined __STM32G473xx_H) ) /** \endcond */
         case ( (uint32_t)TIM2 ):
             CC4_Handler_TIM2 = ISR;
             break;
@@ -1315,7 +1572,7 @@ void HIERODULE_TIM_Assign_ISR_CC4(TIM_TypeDef *Timer, FUNC_POINTER ISR)
             CC4_Handler_TIM3 = ISR;
             break;
         /** \cond */
-        #if ( (defined __STM32F103xB_H) || (defined __STM32F401xC_H) ) /** \endcond */
+        #if ( (defined __STM32F103xB_H) || (defined __STM32F401xC_H) || (defined __STM32G473xx_H) ) /** \endcond */
         case ( (uint32_t)TIM4 ):
             CC4_Handler_TIM4 = ISR;
             break;
@@ -1324,6 +1581,17 @@ void HIERODULE_TIM_Assign_ISR_CC4(TIM_TypeDef *Timer, FUNC_POINTER ISR)
         #ifdef __STM32F401xC_H /** \endcond */
         case ( (uint32_t)TIM5 ):
             CC4_Handler_TIM5 = ISR;
+            break;
+        /** \cond */
+        #elif defined __STM32G473xx_H /** \endcond */
+        case ( (uint32_t)TIM5 ):
+            CC4_Handler_TIM5 = ISR;
+            break;
+        case ( (uint32_t)TIM8 ):
+            CC4_Handler_TIM8 = ISR;
+            break;
+        case ( (uint32_t)TIM20 ):
+            CC4_Handler_TIM20 = ISR;
             break;
         /** \cond */
         #endif /** \endcond */
@@ -1347,6 +1615,14 @@ void HIERODULE_TIM_Assign_ISR_BRK(TIM_TypeDef *Timer, FUNC_POINTER ISR)
         #ifdef __STM32F030x6_H /** \endcond */
         case ( (uint32_t)TIM17 ):
             BRK_Handler_TIM17 = ISR;
+            break;
+        /** \cond */
+        #elif defined __STM32G473xx_H /** \endcond */
+        case ( (uint32_t)TIM8 ):
+            BRK_Handler_TIM8 = ISR;
+            break;
+        case ( (uint32_t)TIM20 ):
+            BRK_Handler_TIM20 = ISR;
             break;
         /** \cond */
         #endif /** \endcond */
@@ -1497,6 +1773,28 @@ extern void TIM1_UP_IRQHandler(void)
 /** \cond */
 #endif
 
+#elif defined __STM32G473xx_H /** \endcond */
+#if ( (HIERODULE_TIM_RESERVED != 1) && (HIERODULE_TIM_RESERVED != 16) ) /** \endcond */
+extern void TIM1_UP_TIM16_IRQHandler(void)
+{
+    /** \cond */
+    #ifdef HIERODULE_TIM_CONVENIENT_IRQ /** \endcond */
+    if(HIERODULE_TIM_IsEnabled_IT_UPD(TIM1) && HIERODULE_TIM_IsSetFlag_UPD(TIM1))
+    {
+        Check_IT(TIM1, UPD_Handler_TIM1, &HIERODULE_TIM_ClearFlag_UPD);
+    }
+    else if(HIERODULE_TIM_IsEnabled_IT_UPD(TIM16) && HIERODULE_TIM_IsSetFlag_UPD(TIM16))
+    {
+        Check_IT(TIM16, UPD_Handler_TIM16, &HIERODULE_TIM_ClearFlag_UPD);
+    }
+    /** \cond */
+    #else /** \endcond */
+    /** \cond */
+    #endif /** \endcond */
+}
+#endif
+
+/** \cond */
 #elif defined __STM32F401xC_H /** \endcond */
 /** @brief @rv_irq_imp_bri{Timer 1 update interrupt - timer 10}\n
   * @rv_def_req_device{__STM32F401xC_H}\n
@@ -1760,7 +2058,7 @@ extern void TIM3_IRQHandler(void)
   * @details @rv_irq_imp_det
   */
 /** \cond */
-#if ( (defined __STM32F103xB_H) || (defined __STM32F401xC_H) ) /** \endcond */
+#if ( (defined __STM32F103xB_H) || (defined __STM32F401xC_H) || defined(__STM32G473xx_H) ) /** \endcond */
 /** \cond */
 #if (HIERODULE_TIM_RESERVED != 4) /** \endcond */
 extern void TIM4_IRQHandler(void)
@@ -1969,6 +2267,28 @@ extern void TIM17_IRQHandler(void)
 
 /** \cond */
 #endif
+extern void TIM15_IRQHandler(void)
+{
+    /** \cond */
+    #ifdef HIERODULE_TIM_CONVENIENT_IRQ /** \endcond */
+        if(HIERODULE_TIM_IsEnabled_IT_UPD(TIM15) && HIERODULE_TIM_IsSetFlag_UPD(TIM15))
+        {
+            Check_IT(TIM15, UPD_Handler_TIM15, &HIERODULE_TIM_ClearFlag_UPD);
+        }
+        else if(HIERODULE_TIM_IsEnabled_IT_CC1(TIM15) && HIERODULE_TIM_IsSetFlag_CC1(TIM15))
+        {
+            Check_IT(TIM15, CC1_Handler_TIM15, &HIERODULE_TIM_ClearFlag_CC1);
+        }
+        else if(HIERODULE_TIM_IsEnabled_IT_CC2(TIM15) && HIERODULE_TIM_IsSetFlag_CC2(TIM15))
+        {
+            Check_IT(TIM15, CC2_Handler_TIM15, &HIERODULE_TIM_ClearFlag_CC2);
+        }
+    /** \cond */
+    #else /** \endcond */
+        TIM14_ISR();
+    /** \cond */
+    #endif /** \endcond */
+}
 #endif  /** \endcond */
 
 /**
