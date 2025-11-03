@@ -45,7 +45,7 @@ extern "C"
   * won't be implemented.\n
   * @rv_def_req{HIERODULE_TIM_HANDLE_IRQ}
   */
-#define HIERODULE_TIM_RESERVED 0
+#define HIERODULE_TIM_RESERVED 2
 
 /** @brief Precompiler constant to select timer ISR assignment routines
   * @details When commented out, ISRs will be assigned per IRQ instead
