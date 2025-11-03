@@ -30,7 +30,7 @@ static HIERODULE_I2C_Wrapper *I2C1_Wrapper;
   * @rv_def_req_device{__STM32F103xB_H or __STM32F401xC_H}
   */
 /** \cond */
-#if ( (defined __STM32F103xB_H) || (defined __STM32F401xC_H) ) /** \endcond */
+#if ( (defined __STM32F103xB_H) || (defined __STM32F401xC_H) || defined(__STM32G473xx_H) ) /** \endcond */
 static HIERODULE_I2C_Wrapper *I2C2_Wrapper;
 
 /** \cond */
@@ -68,7 +68,7 @@ void Idle(HIERODULE_I2C_Wrapper *Wrapper, uint32_t NumberOfPeriods)
 void EnableClockStretching(HIERODULE_I2C_Wrapper *Wrapper)
 {
     /** \cond */
-    #ifdef __STM32F030x6_H /** \endcond */
+    #if ( (defined __STM32F030x6_H) || defined(__STM32G473xx_H) ) /** \endcond */
     CLEAR_BIT(Wrapper->_I2C->CR1, I2C_CR1_PE);
     while( 1 == (READ_BIT(Wrapper->_I2C->CR1, I2C_CR1_PE) == (I2C_CR1_PE)) );
     /** \cond */
@@ -79,7 +79,7 @@ void EnableClockStretching(HIERODULE_I2C_Wrapper *Wrapper)
     while( 0 == (READ_BIT(Wrapper->_I2C->CR1, I2C_CR1_NOSTRETCH) != (I2C_CR1_NOSTRETCH)) );
 
     /** \cond */
-    #ifdef __STM32F030x6_H /** \endcond */
+    #if ( (defined __STM32F030x6_H) || defined(__STM32G473xx_H) ) /** \endcond */
     SET_BIT(Wrapper->_I2C->CR1, I2C_CR1_PE);
     while( 0 == (READ_BIT(Wrapper->_I2C->CR1, I2C_CR1_PE) == (I2C_CR1_PE)) );
     /** \cond */
@@ -94,7 +94,7 @@ void EnableClockStretching(HIERODULE_I2C_Wrapper *Wrapper)
 void DisableClockStretching(HIERODULE_I2C_Wrapper *Wrapper)
 {
     /** \cond */
-    #ifdef __STM32F030x6_H /** \endcond */
+    #if ( (defined __STM32F030x6_H) || defined(__STM32G473xx_H) ) /** \endcond */
     CLEAR_BIT(Wrapper->_I2C->CR1, I2C_CR1_PE);
     while( 1 == (READ_BIT(Wrapper->_I2C->CR1, I2C_CR1_PE) == (I2C_CR1_PE)) );
     /** \cond */
@@ -105,7 +105,7 @@ void DisableClockStretching(HIERODULE_I2C_Wrapper *Wrapper)
     while( 1 == (READ_BIT(Wrapper->_I2C->CR1, I2C_CR1_NOSTRETCH) != (I2C_CR1_NOSTRETCH)) );
 
     /** \cond */
-    #ifdef __STM32F030x6_H /** \endcond */
+    #if ( (defined __STM32F030x6_H) || defined(__STM32G473xx_H) ) /** \endcond */
     SET_BIT(Wrapper->_I2C->CR1, I2C_CR1_PE);
     while( 0 == (READ_BIT(Wrapper->_I2C->CR1, I2C_CR1_PE) == (I2C_CR1_PE)) );
     /** \cond */
@@ -435,7 +435,7 @@ HIERODULE_I2C_Wrapper **HIERODULE_I2C_InitWrapper(I2C_TypeDef *_I2C, uint16_t SR
             Wrapper = &I2C1_Wrapper;
             break;
         /** \cond */
-        #if ( (defined __STM32F103xB_H) || (defined __STM32F401xC_H) ) /** \endcond */
+        #if ( (defined __STM32F103xB_H) || (defined __STM32F401xC_H) || defined(__STM32G473xx_H) ) /** \endcond */
         case ( (uint32_t)I2C2 ):
             Wrapper = &I2C2_Wrapper;
             break;
