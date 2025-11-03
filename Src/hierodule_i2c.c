@@ -837,7 +837,7 @@ void I2C_IRQ_Handler(HIERODULE_I2C_Wrapper *Wrapper)
   * @details @rv_obvious
   */
 /** \cond */
-#if ( (defined __STM32F103xB_H) || (defined __STM32F401xC_H) ) /** \endcond */
+#if ( (defined __STM32F103xB_H) || (defined __STM32F401xC_H) || (defined __STM32G473xx_H) ) /** \endcond */
 extern void I2C1_EV_IRQHandler(void)
 {
     if( I2C1_Wrapper != NULL )
@@ -861,7 +861,7 @@ extern void I2C2_EV_IRQHandler(void)
   * @details @rv_obvious
   */
 /** \cond */
-#elif ( (defined __STM32F030x6_H) || defined(__STM32G473xx_H) ) /** \endcond */
+#elif ( (defined __STM32F030x6_H) ) /** \endcond */
 extern void I2C1_IRQHandler(void)
 {
     if( I2C1_Wrapper != NULL )
