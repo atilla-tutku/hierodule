@@ -760,7 +760,7 @@ static uint32_t GetBaseFreq(TIM_TypeDef *Timer)
     }
     /** \cond */
     #elif defined __STM32G473xx_H /** \endcond */
-    if(Timer != TIM1 && Timer != TIM8 && Timer != TIM20)
+    if(Timer == TIM2 || Timer == TIM3 || Timer == TIM4 || Timer == TIM5 || Timer == TIM6 || Timer == TIM7)
     {
         BaseFreq = (SystemCoreClock >>
             APBPrescTable[(RCC->CFGR & RCC_CFGR_PPRE1) >> RCC_CFGR_PPRE1_Pos]);
